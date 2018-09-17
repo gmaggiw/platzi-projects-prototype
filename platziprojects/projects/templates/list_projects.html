@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container-fluid" style="max-height:350px">
+    <div class="row">
+            <div class="col-md-12">
+                <div class="card card-image" style="border-radius:0 !important;height: 323px;background-image: url({% static 'img/hero.projects.png' %});background-repeat: no-repeat;
+    background-size: contain;">
+                    <div class="container text-white py-5 px-4 my-5" style="width:50%">
+                        <h1 class="card-title font-bold hero-project"><strong>Platzi Projects</strong></h1>
+                        <p style="font-size:1.2em">¡Manos a la obra!. Crea y participa en proyectos de la comunidad de Platzi, esta es tu oportunidad de demostrar lo que sabes</p>
+                        <input class="form-control" type="text" name="query" placeholder="Buscar Proyecto" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="container">
+
+    {% for project in projects %}
+        {{project.name}}
+    {% endfor %}
+</div>
+
+{% endblock %}

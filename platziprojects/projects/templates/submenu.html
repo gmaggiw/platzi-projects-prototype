@@ -1,0 +1,15 @@
+<section>
+    <ul class="nav justify-content-center py-1" style="background: #F3F3F6">
+    {% for link in links %}
+        {% if link == links[0] %}
+            <li class="nav-item first-element">
+                <a class="nav-link active" href="/{{link}}">{{link.capitalize()}}</a>
+            </li>
+        {% else %}
+        <li class="nav-item">
+            <a class="nav-link active" href="/{{link}}">{{link.capitalize()}}</a>
+        </li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+</section>

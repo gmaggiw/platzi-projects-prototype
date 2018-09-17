@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    text-rendering: optimizeLegibility;
+}
+
+.container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+nav {
+    background: rgb(28,54,67);
+    background: linear-gradient(90deg, rgba(28,54,67,1) 0%, rgba(30,83,113,1) 100%);
+    height: 52px;
+}
+
+#logo {
+    height: 35%;
+    width: 35%;
+}
+
+.nav-item {
+    font-weight: 500;
+    font-size: 86%;
+    color: whitesmoke;
+}
+
+.fonts, [class*=" icon-"]:before, [class^=icon-]:before, body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.new {
+    background-color: #7dcd40;
+    padding: 3px;
+    border-radius: 5px;
+    font-size: 80%;
+}
+
+.separator {
+    border-right: 1px solid #fff;
+    padding-right: 10px;
+    margin-right: 10px;
+}
+
+
+
+@media (max-width: 576px) { 
+    .navbar-collapse, .ml-auto, .mx-auto {
+        background: rgb(28,54,67);
+        background: linear-gradient(90deg, rgba(28,54,67,1) 0%, rgba(30,83,113,1) 100%);
+        height: 52px;
+    }
+}
+
+.hero-project {
+    font-weight: bold;
+    font-size: 1.8em;
+}
+
+.form-control {
+    font-size: 0.8em !important;
+}
