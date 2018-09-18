@@ -65,3 +65,24 @@ nav {
 .form-control {
     font-size: 0.8em !important;
 }
+
+
+.btn {
+    border: none !important;
+    padding: 10px;
+    border-radius: 25px !important;
+    background: #2E2E2E !important;
+}
+
+.project-members {
+    background: #7dcd40 !important;
+    padding: 10px;
+    border-radius: 25px !important;
+    line-height: 3.1;
+}
+
+.projects-list li {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}

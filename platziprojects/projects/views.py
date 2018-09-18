@@ -1,11 +1,8 @@
 from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
-
+from projects.models import Project
 # Create your views here.
 
-links = [
-    'Projects'
-]
 
 @require_http_methods(["GET"])
 def presentation(request):
@@ -13,22 +10,5 @@ def presentation(request):
 
 @require_http_methods(["GET"])
 def list_projects(request):
-    projects = [
-        {
-            'name':'Proyecto1',
-            'description':'Este proyecto es para esto',
-        },
-        {
-            'name':'Proyecto2',
-            'description':'Este proyecto es para esto',
-        },
-        {
-            'name':'Proyecto3',
-            'description':'Este proyecto es para esto',
-        },
-        {
-            'name':'Proyecto4',
-            'description':'Este proyecto es para esto',
-        },
-    ]
+    projects = Project.objects.all()
     return render(request, 'list_projects.html', {'projects': projects})
