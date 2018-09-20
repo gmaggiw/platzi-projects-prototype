@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
 from projects.models import Project
+from django.views.generic import DetailView
 # Create your views here.
 
 
@@ -15,4 +16,9 @@ def list_projects(request):
         projects = Project.objects.filter(name__contains=q)
     else:
         projects = Project.objects.all()
-    return render(request, 'list_projects.html', {'projects': projects, 'q': q})
+
+    totalprojects = Project.objects.count()
+    return render(request, 'list_projects.html', {'projects': projects, 'q': q, 'count': totalprojects})
+
+class ProjectDetailView(DetailView):
+    model = Project

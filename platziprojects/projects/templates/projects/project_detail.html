@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load range %}
+{% load mathfilters %}
+{% block content %}
+
+<div class="container py-3">
+<a href="/projects"><< Volver</a><br>
+
+<h1>
+    <img src="{{object.logo.url}}" width="72" />
+    {{object.name}}
+</h1>
+<!--Review-->
+    {% if object.stars %}
+        {% for star in object.stars|range %}
+            <i class="fa fa-star blue-text"> </i>
+        {% endfor %}
+        {% if object.stars < 5 %}
+            {% for star in 5|sub:object.stars|range %}
+                <i class="fa fa-star grey-text"> </i>
+            {% endfor %}
+        {% endif %}
+
+    {% else %}
+
+    <i class="fa fa-star grey-text"> </i>
+    <i class="fa fa-star grey-text"> </i>
+    <i class="fa fa-star grey-text"> </i>
+    <i class="fa fa-star grey-text"> </i>
+    <i class="fa fa-star grey-text"> </i>
+
+    {% endif %}
+
+<p>{{object.description}}</p>
+</div>
+{% endblock content %}
+

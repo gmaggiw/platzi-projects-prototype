@@ -89,18 +89,24 @@ nav {
     vertical-align: middle;
 }
 
+.side {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
 .side-header {
     background-color: #005D88;
     border-radius: 5px 5px 0px 0px;
     padding-right: 5px;
     padding-left: 5px;
     color: #fff;
-    text-shadow: 2px 2px rgb(1, 9, 29);
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.562);
+    font-weight: 700;   
 }
 
 .side-header h3 {
     font-size: 1.5em;
-    
+    margin-bottom: 0;
 }
 
 .side-header > .col-8 {

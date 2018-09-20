@@ -33,7 +33,7 @@
                     <li class="media">
                         <img width="72" class="d-flex mr-3 img-fluid" src="{{project.logo.url}}" alt="{{project.name}}">
                         <div class="media-body">
-                            <a href="">
+                            <a href="/projects/{{project.pk}}">
                                 <h5 class="mt-0 mb-2 font-weight-bold">{{project.name}}</h5>
                             </a>
                             <!--Review-->
@@ -80,7 +80,7 @@
             {% endif %}
             </ul>
         </div>
-        <div class="col-4">
+        <div class="col-4 side">
             <div class="row side-header">
                 <div class="col-4">
                     <img src="{% static 'img/project-management.png' %}" class="img-fluid" />
@@ -88,10 +88,11 @@
                 <div class="col-8">
                     <small>Platzi</small>
                     <h3><strong>PROJECTS</strong></h3>
+                    <small><strong>{{count}}</strong> proyectos disponibles</small>
                 </div>
 
             </div>
-            <a href="" role="button" class="btn btn-success btn-rounded "><i class="fa fa-plus fa-2x"></i>  &nbsp;&nbsp;Nuevo Proyecto</a>
+            <a href="" role="button" class="btn btn-success btn-rounded "><i class="fa fa-plus fa-1x"></i></a> &nbsp;&nbsp;Nuevo Proyecto
         </div>
     </div>
 

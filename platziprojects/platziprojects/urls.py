@@ -19,11 +19,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from projects import views as projects_views
+from projects.views import ProjectDetailView
 
 urlpatterns = [
     path('', projects_views.presentation),
     path('admin/', admin.site.urls),
-    path('projects/', projects_views.list_projects)
+    path('projects/', projects_views.list_projects),
+    path('projects/<int:pk>', ProjectDetailView.as_view())
 ]
 
 if settings.DEBUG is True:
