@@ -13,7 +13,7 @@
                 <div class="container text-white py-5 px-4 my-5" style="width:50%">
                     <h1 class="card-title font-bold hero-project"><strong>Platzi Projects</strong></h1>
                     <p style="font-size:1.2em">¡Manos a la obra!. Crea y participa en proyectos de la comunidad de Platzi, esta es tu oportunidad de demostrar lo que sabes</p>
-                    <input class="form-control" type="text" name="query" placeholder="Buscar Proyecto" />
+                    <input id="search" autocomplete="off"  class="form-control" type="text" name="query" placeholder="Buscar Proyecto" />
                 </div>
             </div>
         </div>
@@ -48,9 +48,9 @@
                             <i class="fa fa-star grey-text"> </i>
                             <i class="fa fa-star grey-text"> </i>
                             <i class="fa fa-star grey-text"> </i>
-                            
+
                             {% endif %}
-                            
+
 
                             <p>{{project.description}}</p>
                             <div class="row">
@@ -77,5 +77,15 @@
     </div>
 
 </div>
+<script>
+    $( document ).ready(function() {
+        $('#search').keypress(function(event){
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if(keycode == '13'){
+                window.location.replace('?q='+ $('#search').val())
+            }
+        });
+    });
+</script>
 
 {% endblock %}

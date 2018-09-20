@@ -10,5 +10,9 @@ def presentation(request):
 
 @require_http_methods(["GET"])
 def list_projects(request):
-    projects = Project.objects.all()
+    q = request.GET.get('q', False)
+    if q:
+        projects = Project.objects.filter(name__contains=q)
+    else:
+        projects = Project.objects.all()
     return render(request, 'list_projects.html', {'projects': projects})
