@@ -67,12 +67,6 @@ nav {
 }
 
 
-.btn {
-    border: none !important;
-    padding: 10px;
-    border-radius: 25px !important;
-    background: #2E2E2E !important;
-}
 
 .project-members {
     background: #7dcd40 !important;
@@ -86,3 +80,34 @@ nav {
     padding-bottom: 10px;
     padding-top: 10px;
 }
+
+.btn-rounded {
+    border-radius: 25px;
+}
+
+.fa-2x {
+    vertical-align: middle;
+}
+
+.side-header {
+    background-color: #005D88;
+    border-radius: 5px 5px 0px 0px;
+    padding-right: 5px;
+    padding-left: 5px;
+    color: #fff;
+    text-shadow: 2px 2px rgb(1, 9, 29);
+}
+
+.side-header h3 {
+    font-size: 1.5em;
+    
+}
+
+.side-header > .col-8 {
+    background-image: url(../img/project-management-shadow.png);
+    background-repeat: no-repeat;
+    background-size: 12em;
+    background-position: 1em;
+    padding-top: 0.5em;
+}
+

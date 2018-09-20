@@ -15,4 +15,4 @@ def list_projects(request):
         projects = Project.objects.filter(name__contains=q)
     else:
         projects = Project.objects.all()
-    return render(request, 'list_projects.html', {'projects': projects})
+    return render(request, 'list_projects.html', {'projects': projects, 'q': q})

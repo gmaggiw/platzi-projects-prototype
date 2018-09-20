@@ -8,9 +8,9 @@
 <div class="container-fluid" style="max-height:350px">
     <div class="row">
         <div class="col-md-12">
-            <div class="card card-image" style="border-radius:0 !important;height: 323px;background-image: url({% static 'img/hero.projects.png' %});background-repeat: no-repeat;
-                        background-size: contain;">
-                <div class="container text-white py-5 px-4 my-5" style="width:50%">
+            <div class="card card-image" style="border-radius:0 !important;height: 234px;background-image: url({% static 'img/hero.projects.png' %});background-repeat: no-repeat;
+                        background-size: cover;">
+                <div class="container text-white py-2 px-4 my-4" style="width:50%">
                     <h1 class="card-title font-bold hero-project"><strong>Platzi Projects</strong></h1>
                     <p style="font-size:1.2em">¡Manos a la obra!. Crea y participa en proyectos de la comunidad de Platzi, esta es tu oportunidad de demostrar lo que sabes</p>
                     <input id="search" autocomplete="off"  class="form-control" type="text" name="query" placeholder="Buscar Proyecto" />
@@ -21,15 +21,21 @@
 </div>
 <hr />
 <div class="container">
+    {% if q %}
+    <a href="?" class="btn btn-primary" role="button"><i class="fa fa-magic mr-1"></i>Ver todos</a>
+    {% endif %}
 
     <div class="row">
-        <div class="col-9">
+        <div class="col-8">
             <ul class="list-unstyled projects-list">
+            {% if projects %}
                 {% for project in projects %}
                     <li class="media">
-                        <img width="72" class="d-flex mr-3 img-fluid" src="{{project.logo.url}}" alt="Caspitas">
+                        <img width="72" class="d-flex mr-3 img-fluid" src="{{project.logo.url}}" alt="{{project.name}}">
                         <div class="media-body">
-                            <h5 class="mt-0 mb-2 font-weight-bold">{{project.name}}</h5>
+                            <a href="">
+                                <h5 class="mt-0 mb-2 font-weight-bold">{{project.name}}</h5>
+                            </a>
                             <!--Review-->
                             {% if project.stars %}
                                 {% for star in project.stars|range %}
@@ -63,16 +69,29 @@
                                     <span class="project-members">{{project.members}} colaboradores</span>
                                 </div>
                                 <div class="col">
-                                    <button onclick="window.location.href='{{project.github}}'" type="button" class="btn btn-elegant btn-rounded fab fa-github fa-3x float-right"> Ver en Github</button>
+                                    <a href="{{project.github}}" target="_blank" role="button" class="btn btn-elegant btn-rounded fab fa-github fa-2x float-right"> Github</a>
                                 </div>
                             </div>
                         </div>
                     </li>
                 {% endfor %}
+            {% else %}
+            <li class="alert alert-danger" role="alert">Sin resultados</li>
+            {% endif %}
             </ul>
         </div>
-        <div class="col-3">
-            col-4
+        <div class="col-4">
+            <div class="row side-header">
+                <div class="col-4">
+                    <img src="{% static 'img/project-management.png' %}" class="img-fluid" />
+                </div>
+                <div class="col-8">
+                    <small>Platzi</small>
+                    <h3><strong>PROJECTS</strong></h3>
+                </div>
+
+            </div>
+            <a href="" role="button" class="btn btn-success btn-rounded "><i class="fa fa-plus fa-2x"></i>  &nbsp;&nbsp;Nuevo Proyecto</a>
         </div>
     </div>
 
