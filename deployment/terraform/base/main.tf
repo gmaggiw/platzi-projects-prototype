@@ -44,6 +44,6 @@ module "ecs-deployline" {
   git_repository = {
     owner  = "gmaggiw"
     name   = "platzi-projects-prototype"
-    branch = "master"
+    branch = var.branch
   }
 }

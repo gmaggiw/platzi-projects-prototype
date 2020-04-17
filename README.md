@@ -29,3 +29,17 @@ Any recommendation or suggestion feel free to contribute.
     http://localhost:8000
     ```
  
+ ## Notes
+
+ In the process of developing this project, the major issue I had was to understand how the AWS CI/CD works. I had to watch some videos and read the AWS Documentation to understand it. Once I understood how it works, I tried to build a custom terraform module, but I noticed that it would be a lot of work so I had to look for a terraform module. I found one module but it had hardcoded the bucket region so I decided to clone it and fix it.
+
+ I created two environemnts: prod and dev. Creating more environments is very straightforward with this folder stucture, you just have to create another folder with the variables.tf file and create a symbolic link of the main.tf from the base folder.
+
+![Architecture](https://github.com/ispec-inc/terraform-aws-ecs-deploy-pipeline/blob/master/.github/images/architecture.png?raw=true)
+
+ So, in this way, we are creating one pipeline by environment with all the resources needed.
+
+ Each environment has their correspondant branch in the git repository. When a commit is made in one branch this trigger the correspondant pipeline and deploy the change to the correct environment.
+
+ The infrastructure variables for each environment is been managed in the variables.tf, defining a default value for each variable. Right now the application has only demo data, but for a real scenario the application will need environment variables. This variables could be managed in a .env file for each environment, and pass those values to a docker compose file. If there are variables with sensitive data, the best alternative is to use some service like AWS parameter manager or secret manager.
+

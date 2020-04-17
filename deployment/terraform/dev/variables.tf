@@ -22,3 +22,8 @@ variable "subnet2_az" {
     type = string
     default = "us-west-1b"
 }
+
+variable "branch" {
+    type = string
+    default = "development"
+}
