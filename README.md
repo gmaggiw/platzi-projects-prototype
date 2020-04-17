@@ -1,44 +1,31 @@
 # Platzi Projects
 
-Platzi Projects es una propuesta para la generación de un espacio en la comunidad de Platzi, que promueva y facilite el desarrollo de proyectos colaborativos entre los miembros de la comunidad, con la finalidad de darle la oportunidad a los estudiantes de demostrar sus conocimientos ante terceros, y a su vez generar un ecosistema de generación de valor para la comunidad y para la empresa.
+Platzi Projects is a proposal for the generation of a space in the Platzi community, which promotes and facilitates the development of collaborative projects among members of the community, in order to give students the opportunity to demonstrate their knowledge to third parties, and in turn generate an ecosystem of generation of value for the community and for the company.
 
-Este repositorio contiene un prototipo funcional para ayudar a visualizar cómo sería la dinámica de este nuevo espacio.
+This repository contains a functional prototype to help visualize what the dynamics of this new space would be like.
 
-Cualquier recomendación o sugerencia sientanse libres de aportar.
+Any recommendation or suggestion feel free to contribute.
 
-## Instalación
+## Running with Docker locally
 
-
- 1. Clonar el proyecto
+ 1. Clone the project
     ```bash
     git clone https://github.com/gmaggiw/platzi-projects-prototype
     ```
- 2. Cambiarse a la ruta del proyecto
+ 2. Change directory to the project folder
     ```bash
     cd platzi-projects-prototype
     ```
- 3. Crear el entorno virtual de python
+ 3. Build the image
     ```bash
-    python3 -m venv .venv
+    docker build -t gmaggi/projects .
     ```
- 4. Instalar los requerimientos
+ 4. Run a container with the image
     ```bash
-    pip install -r requirements.txt
+    docker run -d -p 8000:8000 gmaggi/projects:latest
     ```
- 5. Cambiar a la carpeta del proyecto django
+ 5. Open the URL in a browser
     ```bash
-    cd platziprojects
+    http://localhost:8000
     ```
- 6. Ejecutar las migraciones
-    ```bash
-    python manage.py migration
-    ```
- 7. Cargar la data de demo
-    ```bash
-    python manage.py loaddata projects
-    ```
- 8. Ejecutar el servidor de desarrollo de django
-    ```bash
-    python manage.py runserver
-    ```
- 9. Ir a la url: http://localhost:8000
+ 
