@@ -36,10 +36,15 @@ Any recommendation or suggestion feel free to contribute.
  I created two environemnts: prod and dev. Creating more environments is very straightforward with this folder stucture, you just have to create another folder with the variables.tf file and create a symbolic link of the main.tf from the base folder.
 
 ![Architecture](https://github.com/ispec-inc/terraform-aws-ecs-deploy-pipeline/blob/master/.github/images/architecture.png?raw=true)
+###### Image from https://registry.terraform.io/modules/ispec-inc/ecs-deploy-pipeline/aws/0.4.3
 
- So, in this way, we are creating one pipeline by environment with all the resources needed.
+So, in this way, we are creating one pipeline by environment with all the resources needed.
 
- Each environment has their correspondant branch in the git repository. When a commit is made in one branch this trigger the correspondant pipeline and deploy the change to the correct environment.
+Each environment has their corresponding branch in the git repository. When a commit is made in one branch this trigger the corresponding pipeline and deploy the change to the correct environment.
 
- The infrastructure variables for each environment is been managed in the variables.tf, defining a default value for each variable. Right now the application has only demo data, but for a real scenario the application will need environment variables. This variables could be managed in a .env file for each environment, and pass those values to a docker compose file. If there are variables with sensitive data, the best alternative is to use some service like AWS parameter manager or secret manager.
+The infrastructure variables for each environment is been managed in the variables.tf, defining a default value for each variable. Right now the application has only demo data, but for a real scenario the application will need environment variables. This variables could be managed in a .env file for each environment, and pass those values ​​to a docker compose file. If there are variables with sensitive data, the best alternative is to use some service like AWS parameter manager or secret manager.
+
+The production environment, in a real situation, should have an RDS database, instead of the sqlite db, so in this way, the application could scale.
+
+In the future, an improvement opportunity could be to decouple the application in backend and frontend, with an API in the backend based on microservices over a serverless infrastructure using AWS lambda and API Gateway, and a frontend maybe with a framework like React. So in this way, the application could have more than one interface, and each microservice could be scaled independently.
 
