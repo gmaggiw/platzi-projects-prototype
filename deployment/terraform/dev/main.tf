@@ -9,6 +9,11 @@ provider "aws" {
 
 }
 
+locals {
+  application_name       = "gmaggi-platziprojects"
+  application_name_lower = replace(lower(local.application_name), "/[^a-z0-9]/", "")
+}
+
 module "vpc" {
     source = "../modules/vpc"
 
@@ -17,20 +22,28 @@ module "vpc" {
     subnet2_az = var.subnet2_az
 }
 
-module "codebuild" {
-    source  = "../modules/codebuild"
 
-    environment = var.environment
-    vpc_id      = module.vpc.vpc_id
-    subnet1_id  = module.vpc.subnet1_id
-    subnet2_id  = module.vpc.subnet2_id
-    sg1_id      = module.vpc.sg1_id
-    sg2_id      = module.vpc.sg2_id
-    
-}
+module "ecs-deployline" {
+  source  = "ispec-inc/ecs-deploy-pipeline/aws"
+  version = "0.4.3"
 
-module "codepipeline" {
-    source  = "../modules/codepipeline"
+  # 2. Your vpc and subnets id.
+  vpc_id         = module.vpc.vpc_id
+  public_subnets = [module.vpc.subnet1_id, module.vpc.subnet2_id]
 
-    environment = var.environment
+  cluster_name        = local.application_name
+  app_repository_name = local.application_name
+  container_name      = local.application_name
+
+  # 3. Port to use
+  alb_port         = "80"
+  container_port   = "8000"
+  helth_check_path = "/"
+
+  # 4. Your github repository.
+  git_repository = {
+    owner  = "gmaggiw"
+    name   = "platzi-projects-prototype"
+    branch = "master"
+  }
 }

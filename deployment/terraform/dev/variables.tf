@@ -5,12 +5,12 @@ variable "region" {
 
 variable "environment" {
     type = string
-    default = "prod"
+    default = "dev"
 }
 
 variable "cidr_block" {
     type = string
-    default = "10.0.0.0/16"
+    default = "10.1.0.0/16"
 }
 
 variable "subnet1_az" {
