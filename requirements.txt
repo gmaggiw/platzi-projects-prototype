@@ -1,6 +1,6 @@
 wheel
 astroid==2.0.4
-Django==2.2.10
+Django==2.2.20
 django-mathfilters==0.4.0
 isort==4.3.4
 lazy-object-proxy==1.3.1
